@@ -1,7 +1,6 @@
 import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
-import swaggerUi from "swagger-ui-express";
 import swaggerDocument from "../swagger.json" with { type: "json" };
 import { AccessError, InputError } from "./error.js";
 import {
@@ -115,16 +114,53 @@ app.get("/docs.json", (req, res) => {
   res.json(swaggerDocument);
 });
 
-app.use("/docs", swaggerUi.serve);
+app.get("/docs", (req, res) => {
+  res.setHeader("Content-Type", "text/html; charset=utf-8");
+  res.send(`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Swagger UI</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css"
+  />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+    }
+    #swagger-ui {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="swagger-ui"></div>
 
-app.get(
-  "/docs",
-  swaggerUi.setup(null, {
-    swaggerOptions: {
-      url: "/docs.json",
-    },
-  })
-);
+  <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+  <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-standalone-preset.js"></script>
+  <script>
+    window.onload = () => {
+      window.ui = SwaggerUIBundle({
+        url: "/docs.json",
+        dom_id: "#swagger-ui",
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        layout: "BaseLayout"
+      });
+    };
+  </script>
+</body>
+</html>
+  `);
+});
 
 /***************************************************************
                        Export (Vercel)
