@@ -56,45 +56,51 @@ const update = async (admins) =>
 
 export const save = () => update(admins);
 
-export const reset = async () => {
+export const reset = () => {
   admins = {};
-  await update(admins);
+  return update(admins);
 };
 
-const init = async () => {
-  try {
-    if (USE_VERCEL_KV) {
-      const response = await fetch(`${KV_REST_API_URL}/get/admins`, {
-        headers: {
-          Authorization: `Bearer ${KV_REST_API_TOKEN}`,
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error("Reading from Vercel KV failed");
-      }
-
-      const data = await response.json();
-
-      if (data.result) {
-        const parsed = JSON.parse(data.result);
-        admins = parsed.admins || {};
-      } else {
+const initializeData = () => {
+  if (USE_VERCEL_KV) {
+    fetch(`${KV_REST_API_URL}/get/admins`, {
+      headers: {
+        Authorization: `Bearer ${KV_REST_API_TOKEN}`,
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Reading from Vercel KV failed");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data.result) {
+          const parsed = JSON.parse(data.result);
+          admins = parsed.admins || {};
+        } else {
+          admins = {};
+          return save();
+        }
+      })
+      .catch(() => {
+        console.log("WARNING: No database found, create a new one");
         admins = {};
-        await save();
-      }
-    } else {
+        save();
+      });
+  } else {
+    try {
       const data = JSON.parse(fs.readFileSync(DATABASE_FILE));
       admins = data.admins || {};
+    } catch (error) {
+      console.log("WARNING: No database found, create a new one");
+      admins = {};
+      save();
     }
-  } catch (error) {
-    console.log("WARNING: No database found, create a new one");
-    admins = {};
-    await save();
   }
 };
 
-await init();
+initializeData();
 
 /***************************************************************
                        Helper Functions
