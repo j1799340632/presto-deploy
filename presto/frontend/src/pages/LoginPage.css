@@ -1,0 +1,132 @@
+.login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(124, 92, 255, 0.18), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(64, 200, 224, 0.18), transparent 55%),
+    #0f1115;
+  color: #f5f6fa;
+}
+
+.login__card {
+  width: 100%;
+  max-width: 24rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2.5rem 2rem;
+}
+
+.login__title {
+  font-size: 1.75rem;
+  margin: 0 0 1.75rem;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: #c8cad3;
+}
+
+.login__input {
+  padding: 0.7rem 0.85rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.07);
+  color: #f5f6fa;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.login__input::placeholder {
+  color: rgba(200, 202, 211, 0.5);
+}
+
+.login__input:focus {
+  border-color: #7c5cff;
+}
+
+.login__error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background: rgba(255, 80, 80, 0.15);
+  border: 1px solid rgba(255, 80, 80, 0.4);
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 1rem;
+  color: #ff7b7b;
+  font-size: 0.88rem;
+}
+
+.login__error-text {
+  flex: 1;
+}
+
+.login__error-close {
+  background: none;
+  border: none;
+  color: #ff7b7b;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0 0.25rem;
+  line-height: 1;
+}
+
+.login__error-close:hover {
+  color: #fff;
+}
+
+.login__btn {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 999px;
+  background: #7c5cff;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+  margin-top: 0.25rem;
+}
+
+.login__btn:hover {
+  background: #6a48f0;
+  transform: translateY(-1px);
+}
+
+.login__btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.login__footer {
+  text-align: center;
+  margin: 1.5rem 0 0;
+  font-size: 0.88rem;
+  color: #c8cad3;
+}
+
+.login__link {
+  color: #7c5cff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login__link:hover {
+  text-decoration: underline;
+}

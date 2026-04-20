@@ -1,0 +1,5 @@
+- Improved overall visual hierarchy with a more refined global background and spacing system.
+- Enhanced cards and containers with softer shadows, cleaner borders, and better rounded corners.
+- Upgraded buttons with smoother hover feedback and a more modern interactive feel.
+- Improved input fields with clearer focus states for better usability and accessibility.
+- Applied more consistent visual styling across major pages so the app feels like one cohesive product.

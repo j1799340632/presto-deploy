@@ -1,0 +1,152 @@
+{
+  "admins": {
+    "hayden.smith@unsw.edu.au": {
+      "name": "Hayden",
+      "password": "bananapie",
+      "store": {
+        "presentations": [
+          {
+            "id": "1776658021682",
+            "name": "111",
+            "description": "111",
+            "thumbnail": "data:image/jpeg;base64,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",
+            "slides": [
+              {
+                "elements": []
+              },
+              {
+                "elements": [
+                  {
+                    "id": "1776677124023",
+                    "type": "text",
+                    "x": 26.776649746192895,
+                    "y": 37.22504230118444,
+                    "width": 25,
+                    "height": 15,
+                    "layer": 1,
+                    "text": "hhhh",
+                    "fontSize": 1,
+                    "color": "#ffffff",
+                    "fontFamily": "Arial"
+                  }
+                ]
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": [
+                  {
+                    "id": "1776673451569",
+                    "type": "text",
+                    "x": 38.57868020304569,
+                    "y": 36.47553304009979,
+                    "width": 32.868020304568525,
+                    "height": 20.178625061248738,
+                    "layer": 1,
+                    "text": "hhhhh",
+                    "fontSize": 1,
+                    "color": "#ffffff",
+                    "fontFamily": "Arial"
+                  }
+                ]
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": [
+                  {
+                    "id": "1776676987440",
+                    "type": "text",
+                    "x": 0,
+                    "y": 0,
+                    "width": 25,
+                    "height": 15,
+                    "layer": 1,
+                    "text": "hhh",
+                    "fontSize": 1,
+                    "color": "#ffffff",
+                    "fontFamily": "Arial"
+                  }
+                ]
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              },
+              {
+                "elements": []
+              }
+            ],
+            "defaultBackground": {
+              "type": "gradient",
+              "gradientColor1": "#1a1c22",
+              "gradientColor2": "#7c5cff",
+              "gradientDirection": "to bottom"
+            }
+          }
+        ]
+      },
+      "sessionActive": false
+    },
+    "111@gmai.com": {
+      "name": "1111",
+      "password": "111",
+      "store": {}
+    }
+  }
+}
