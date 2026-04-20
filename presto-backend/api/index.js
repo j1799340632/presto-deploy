@@ -1,7 +1,6 @@
 import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
-import fs from "fs";
 import swaggerUi from "swagger-ui-express";
 import swaggerDocument from "../swagger.json" with { type: "json" };
 import { AccessError, InputError } from "./error.js";
@@ -14,7 +13,6 @@ import {
   save,
   setStore,
 } from "./service.js";
-const { PROD_BACKEND_PORT, USE_VERCEL_KV } = process.env;
 
 const app = express();
 
@@ -25,7 +23,7 @@ app.use(bodyParser.json({ limit: "50mb" }));
 const catchErrors = (fn) => async (req, res) => {
   try {
     await fn(req, res);
-    save();
+    await save();
   } catch (err) {
     if (err instanceof InputError) {
       res.status(400).send({ error: err.message });
@@ -33,7 +31,7 @@ const catchErrors = (fn) => async (req, res) => {
       res.status(403).send({ error: err.message });
     } else {
       console.log(err);
-      res.status(500).send({ error: "A system error ocurred" });
+      res.status(500).send({ error: "A system error occurred" });
     }
   }
 };
@@ -100,23 +98,15 @@ app.put(
 );
 
 /***************************************************************
-                       Running Server
+                       Docs
 ***************************************************************/
 
 app.get("/", (req, res) => res.redirect("/docs"));
 
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-const port = USE_VERCEL_KV
-  ? PROD_BACKEND_PORT
-  : JSON.parse(fs.readFileSync("../presto/frontend/backend.config.json")).BACKEND_PORT;
-
-let server;
-if (port) {
-  server = app.listen(port, () => {
-    console.log(`For API docs, navigate to http://localhost:${port}`);
-  });
-}
+/***************************************************************
+                       Export (Vercel)
+***************************************************************/
 
 export default app;
-export { server };
