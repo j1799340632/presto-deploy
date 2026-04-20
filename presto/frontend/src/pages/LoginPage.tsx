@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import './LoginPage.css';
 
 const BACKEND_PORT = 5500;
-const BASE_URL = `http://localhost:${BACKEND_PORT}`;
+const BASE_URL = "https://z5557661-presto-deploy-2.vercel.app";
 
 function LoginPage() {
   const [email, setEmail] = useState('');
