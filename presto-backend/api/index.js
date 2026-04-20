@@ -111,7 +111,20 @@ app.get("/ping", (req, res) => {
 
 app.get("/", (req, res) => res.redirect("/docs"));
 
-app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.get("/docs.json", (req, res) => {
+  res.json(swaggerDocument);
+});
+
+app.use("/docs", swaggerUi.serve);
+
+app.get(
+  "/docs",
+  swaggerUi.setup(null, {
+    swaggerOptions: {
+      url: "/docs.json",
+    },
+  })
+);
 
 /***************************************************************
                        Export (Vercel)
