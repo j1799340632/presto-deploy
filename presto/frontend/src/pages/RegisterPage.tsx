@@ -3,7 +3,7 @@ import type { FormEvent } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './RegisterPage.css';
 
-const BASE_URL = "https://z5557661-presto-deploy-2.vercel.app";
+const BASE_URL = "https://z5557661-presto-be-deploy.vercel.app";
 
 function RegisterPage() {
   const [email, setEmail] = useState('');

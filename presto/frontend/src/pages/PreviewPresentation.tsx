@@ -3,7 +3,7 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import './PreviewPresentation.css';
 
 
-const BASE_URL = "https://z5557661-presto-deploy-2.vercel.app";
+const BASE_URL = "https://z5557661-presto-be-deploy.vercel.app";
 
 interface SlideElement {
   id: string;

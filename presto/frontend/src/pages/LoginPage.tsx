@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import './LoginPage.css';
 
 
-const BASE_URL = "https://z5557661-presto-deploy-2.vercel.app";
+const BASE_URL = "https://z5557661-presto-be-deploy.vercel.app";
 
 function LoginPage() {
   const [email, setEmail] = useState('');
