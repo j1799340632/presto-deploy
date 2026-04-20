@@ -3,7 +3,7 @@ import type { FormEvent } from 'react';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import './EditPresentation.css';
 
-const BACKEND_PORT = 5500;
+
 const BASE_URL = "https://z5557661-presto-deploy-2.vercel.app";
 
 interface SlideElement {

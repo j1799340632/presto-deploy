@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import './PreviewPresentation.css';
 
-const BACKEND_PORT = 5500;
+
 const BASE_URL = "https://z5557661-presto-deploy-2.vercel.app";
 
 interface SlideElement {

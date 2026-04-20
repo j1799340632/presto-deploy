@@ -3,7 +3,7 @@ import type { FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 
-const BACKEND_PORT = 5500;
+
 const BASE_URL = "https://z5557661-presto-deploy-2.vercel.app";
 
 interface Presentation {
